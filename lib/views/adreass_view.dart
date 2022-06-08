@@ -1,5 +1,4 @@
 import 'package:ecommerce/helper/helpers/conest.dart';
-import 'package:ecommerce/view_models/account_veiw_%20model.dart';
 import 'package:ecommerce/view_models/cart_view_model.dart';
 import 'package:ecommerce/views/widgets/small_button.dart';
 import 'package:ecommerce/views/widgets/text.dart';

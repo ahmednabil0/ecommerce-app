@@ -77,7 +77,7 @@ class ExploreView extends GetWidget<HomeViewModel> {
                 padding:
                     EdgeInsets.symmetric(horizontal: Get.height * 13 / 812),
                 child: InkWell(
-                  onTap: () => Get.to(() => const SearchView()),
+                  onTap: () => Get.to(() => const SearchVeiw()),
                   child: Container(
                     margin: EdgeInsets.only(top: Get.height * 5 / 812),
                     alignment: Alignment.centerLeft,

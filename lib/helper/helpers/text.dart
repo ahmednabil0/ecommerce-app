@@ -29,3 +29,11 @@ String cutText4(String txt) {
     return txt;
   }
 }
+
+String cutText5(String txt) {
+  if (txt.length > 100) {
+    return txt.replaceRange(100, txt.length, ' ...');
+  } else {
+    return txt;
+  }
+}
