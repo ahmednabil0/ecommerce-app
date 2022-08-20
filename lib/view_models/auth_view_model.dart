@@ -11,6 +11,18 @@ class AuthViewModel extends GetxController {
     update();
   }
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  final Rxn<User> _user = Rxn<User>();
+
+  String? get user => _user.value?.email;
+
+  @override
+  void onInit() {
+    super.onInit();
+    _user.bindStream(_auth.authStateChanges());
+  }
+
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   // sign in
   Future<void> signUp(String email, String password, String name) async {
