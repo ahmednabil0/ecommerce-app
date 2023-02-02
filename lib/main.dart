@@ -1,8 +1,9 @@
-import 'package:ecommerce/helper/theme/theme.dart';
-import 'package:ecommerce/views/widgets/aniamated_splash_screan.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+
+import 'helper/theme/theme.dart';
+import 'views/widgets/aniamated_splash_screan.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,15 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce/helper/helpers/conest.dart';
-import 'package:ecommerce/models/cart_product_model.dart';
-import 'package:ecommerce/view_models/cart_view_model.dart';
-import 'package:ecommerce/views/widgets/small_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'package:ecommerce/views/home_view/page_photo.dart';
-
+import '../../helper/helpers/conest.dart';
+import '../../models/cart_product_model.dart';
+import '../../view_models/cart_view_model.dart';
+import '../widgets/small_button.dart';
 import '../widgets/text.dart';
+import 'page_photo.dart';
 
 class DetailsScrean extends StatefulWidget {
   const DetailsScrean({
@@ -57,12 +56,15 @@ class _DetailsScreanState extends State<DetailsScrean> {
               Stack(children: [
                 InkWell(
                   onTap: () {
-                    Get.to(() => PhotoView(
+                    Get.to(
+                      () => PhotoView(
                         image: widget.image,
                         image2: widget.image2,
                         image3: widget.image3,
                         image4: widget.image4,
-                        image5: widget.image5));
+                        image5: widget.image5,
+                      ),
+                    );
                   },
                   child: Hero(
                     tag: 'img',
@@ -73,10 +75,11 @@ class _DetailsScreanState extends State<DetailsScrean> {
                               bottomRight: Radius.circular(50)),
                           color: Colors.white,
                           image: DecorationImage(
-                              image: AssetImage(
-                                'assets/images/1.png',
-                              ),
-                              opacity: 0.02),
+                            image: AssetImage(
+                              'assets/images/1.png',
+                            ),
+                            opacity: 0.02,
+                          ),
                         ),
                         height: Get.height * 255 / 812,
                         child: CarouselSlider(
@@ -158,8 +161,8 @@ class _DetailsScreanState extends State<DetailsScrean> {
                         right: 0,
                         child: Container(
                           alignment: Alignment.center,
-                          width: Get.height * 80 / 812,
-                          height: Get.height * 30 / 812,
+                          width: Get.height * 100 / 812,
+                          height: Get.height * 35 / 812,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 bottomLeft:
@@ -167,10 +170,11 @@ class _DetailsScreanState extends State<DetailsScrean> {
                               ),
                               color: primaryColor.withOpacity(0.5)),
                           child: NewText(
-                              txt: 'best Sell',
-                              colr: Colors.white,
-                              fWeight: FontWeight.w500,
-                              fSize: Get.height * 16 / 812),
+                            txt: 'best Sell',
+                            colr: Colors.white,
+                            fWeight: FontWeight.w600,
+                            fSize: Get.height * 14 / 812,
+                          ),
                         ))
                     : const SizedBox()
               ]),
@@ -182,7 +186,7 @@ class _DetailsScreanState extends State<DetailsScrean> {
                         vertical: Get.height * 8 / 812),
                     child: Text(widget.name,
                         style: TextStyle(
-                            fontSize: Get.height * 26 / 812,
+                            fontSize: Get.height * 23 / 812,
                             color: fontColor,
                             fontWeight: FontWeight.w700)),
                   ),
@@ -256,8 +260,8 @@ class _DetailsScreanState extends State<DetailsScrean> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: Get.height * 30 / 812,
-                        vertical: Get.height * 8 / 812),
+                      horizontal: Get.height * 30 / 812,
+                    ),
                     child: Text('Details',
                         style: TextStyle(
                             fontSize: Get.height * 18 / 812,
@@ -266,14 +270,18 @@ class _DetailsScreanState extends State<DetailsScrean> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: Get.height * 30 / 812,
-                        vertical: Get.height * 8 / 812),
-                    child: Text(widget.details,
-                        style: TextStyle(
-                            fontSize: Get.height * 14 / 812,
-                            color: fontColor,
-                            wordSpacing: 2.9,
-                            height: 1.8)),
+                      horizontal: Get.height * 30 / 812,
+                    ),
+                    child: Text(
+                      widget.details,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: Get.height * 14 / 812,
+                          color: primaryColor,
+                          wordSpacing: 2.9,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),
@@ -299,11 +307,14 @@ class _DetailsScreanState extends State<DetailsScrean> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(1.0),
-                          child: Text('\$ ${widget.price}',
-                              style: TextStyle(
-                                  fontSize: Get.height * 18 / 812,
-                                  color: primaryColor,
-                                  fontWeight: FontWeight.w700)),
+                          child: Text(
+                            '\$ ${widget.price}',
+                            style: TextStyle(
+                              fontSize: Get.height * 15 / 812,
+                              color: primaryColor,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
                         )
                       ],
                     ),
@@ -314,11 +325,14 @@ class _DetailsScreanState extends State<DetailsScrean> {
                             txt: 'ADD',
                             ontap: () {
                               final cont = Get.put(CartViewModel());
-                              cont.addToCart(Cartproducts(
+                              cont.addToCart(
+                                Cartproducts(
                                   name: widget.name,
                                   price: widget.price,
                                   count: 1,
-                                  img: widget.image));
+                                  img: widget.image,
+                                ),
+                              );
                             }),
                       ],
                     ),
